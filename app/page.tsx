@@ -1,32 +1,53 @@
 "use client";
 
+import Hero from "@/component/Hero";
+import { HeroPost } from "@/type/heroTypes";
 import { useEffect, useState } from "react";
 
-interface Post {
-  _id: string;
-  title: string;
-  content: string;
-  slug: string;
-}
+const localData: HeroPost[] = [
+  { _id: "1", title: "Post One", description: "Content One" },
+  { _id: "2", title: "Post Two", description: "Content Two" },
+];
 
 export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [hero, setHero] = useState<HeroPost[]>([]);
 
+  // useEffect(() => {
+  //   const fetchHero = async () => {
+  //     try {
+  //       const res = await fetch("/api/hero");
+  //       if (!res.ok) throw new Error("Failed to fetch hero");
+
+  //       const data = await res.json();
+  //       console.log(data, "Fetched hero data");
+  //       setHero(data?.hero || data || localData);
+  //     } catch (err) {
+  //       console.error(err);
+  //       setHero(localData);
+  //     }
+  //   };
+
+  //   fetchHero();
+  // }, []);
   useEffect(() => {
-    fetch("/api/posts")
-      .then((res) => res.json())
-      .then(setPosts);
+    const fetchHero = async () => {
+      const res = await fetch("/api/hero");
+      if (!res.ok) {
+        console.log("Failed to fetch hero");
+        return;
+      }
+
+      const data = await res.json();
+      console.log("Fetched hero:", data);
+      setHero(data?.hero || []);
+    };
+
+    fetchHero();
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-6">Welcome to ALCO CMS</h1>
-      {posts.map((post) => (
-        <div key={post._id} className="mb-4 p-4 border rounded">
-          <h2 className="text-2xl font-semibold">{post.title}</h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
+    <div className="">
+      <Hero slides={hero} setSlides={setHero} />
     </div>
   );
 }
