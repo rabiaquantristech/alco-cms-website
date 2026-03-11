@@ -93,15 +93,68 @@
     }
   }
 
+  /* H4 */
+  .h4{
+    @apply font-outfit text-[28px] leading-[40px];
+  }
+
+  @screen md{
+    .h4{
+      @apply text-[34px] leading-[50px];
+    }
+  }
+
+  @screen xl{
+    .h4{
+      @apply text-[40px] leading-[60px];
+    }
+  }
+
+
+  /* H5 */
+  .h5{
+    @apply font-outfit text-[22px] leading-[34px];
+  }
+
+  @screen md{
+    .h5{
+      @apply text-[26px] leading-[44px];
+    }
+  }
+
+  @screen xl{
+    .h5{
+      @apply text-[30px] leading-[50px];
+    }
+  }
+
+   .h6{
+    @apply font-outfit font-medium text-[20px] leading-[32px];
+  }
+
+  
+  @screen md{
+    .h6{
+      @apply text-[24px] leading-[36px];
+    }
+  }
+
+  @screen xl{
+    .h6{
+      @apply text-[28px] leading-[40px];
+    }
+  }
+
+
   /* text */
   .custom-text1 {
-    @apply font-outfit text-[18px] leading-[28px];
+    @apply font-outfit text-[18px] leading-[32px];
   }
 
   /* Small screens (sm) */
   @screen sm {
     .custom-text1 {
-      @apply text-[16px] leading-[24px];
+      @apply text-[16px] leading-[30px];
       /* slightly smaller for small screens */
     }
   }
@@ -109,7 +162,7 @@
   /* Medium screens (md) */
   @screen md {
     .custom-text1 {
-      @apply text-[18px] leading-[28px];
+      @apply text-[18px] leading-[32px];
       /* default size restored for medium screens */
     }
   }
@@ -117,7 +170,7 @@
   /* Large screens (lg) */
   @screen lg {
     .custom-text1 {
-      @apply text-[18px] leading-[28px];
+      @apply text-[18px] leading-[32px];
       /* slightly bigger for large screens */
     }
   }
@@ -125,7 +178,7 @@
   /* Extra large screens (xl) */
   @screen xl {
     .custom-text1 {
-      @apply text-[18px] leading-[28px];
+      @apply text-[18px] leading-[32px];
       /* largest for xl screens */
     }
   }

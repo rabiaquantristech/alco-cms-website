@@ -1,6 +1,6 @@
 import React from "react"
 import { EmblaOptionsType } from "embla-carousel"
-import { DotButton, useDotButton } from "./heroCarouselDot"
+import { DotButton, useDotButton } from "../emblaCarouselDot"
 import useEmblaCarousel from "embla-carousel-react"
 import Button from "@/component/button";
 import "@/component/hero-carousel/heroCarousel.css"
@@ -19,7 +19,7 @@ const HeroCarousel = ({ slides, options, onEditSlide }: PropType) => {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
   console.log(slides)
   return (
-    <section className="hero_embla py-16 px-4" style={{
+    <section className="hero_embla py-16 " style={{
       background: `linear-gradient(90.5deg, #000000 -3.72%, rgba(0, 0, 0, 0) 104.47%), url(${heroSlide1.src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",

@@ -5,7 +5,7 @@ type ButtonProps = {
     onClick?: () => void; // Button click handler
     href?: string; // Optional link
     disabled?: boolean; // Button disable karne ke liye
-    variant?: "primary" | "secondary" | "danger" | "white" | "outline"; // Button ka type
+    variant?: "primary" | "secondary" | "secondaryBlack" | "danger" | "white" | "outline"; // Button ka type
     size?: "small" | "medium" | "large"; // Size of button
     iconLeft?: React.ReactNode;  // Left side icon
     iconRight?: React.ReactNode; // Right side icon
@@ -27,6 +27,7 @@ const Button: React.FC<ButtonProps> = ({
     const variantClasses: Record<string, string> = {
         primary: "bg-primary hover:bg-primary-600 text-white",
         secondary: "bg-secondary hover:bg-secondary-600 text-white",
+        secondaryBlack: "bg-secondary hover:bg-secondary-600 text-black",
         danger: "bg-danger hover:bg-danger-600 text-white",
         white: "bg-white hover:bg-gray-100 text-gray-800 border border-gray-300",
         outline: "border border-gray-500 text-gray-700 hover:bg-gray-100",
