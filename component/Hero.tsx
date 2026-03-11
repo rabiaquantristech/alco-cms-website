@@ -1,31 +1,35 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import HeroCarousel from "./hero-carousel/heroCarousel"
 import HeroEditorModal from "./modal/hero/[id]/HeroEditorModal"
 import { HeroPost } from "@/type/heroTypes"
+import HeroAddedModal from "./modal/hero/HeroAddedModal"
 
-type PropType = {
-  slides: HeroPost[]
-  setSlides: (slides: HeroPost[]) => void
-}
-export default function Hero({ slides, setSlides }: PropType) {
+// type PropType = {
+//   slides: HeroPost[]
+//   setHero: (slides: HeroPost[]) => void
+// }
+
+// const localData: HeroPost[] = [
+//   { _id: "1", title: "Post One", description: "Content One" },
+//   { _id: "2", title: "Post Two", description: "Content Two" },
+// ];
+
+export default function Hero() {
   const [editingSlide, setEditingSlide] = useState<HeroPost | null>(null)
+  const [hero, setHero] = useState<HeroPost[]>([]);
 
-  console.log(`-------------? slides + ${slides}`)
+  
+
+  console.log(`-------------? slides + ${hero}`)
   const handleUpdate = async (updatedSlide: HeroPost) => {
 
-    const newSlides = slides.map((s) =>
+    const newSlides = hero.map((s) =>
       s._id === updatedSlide?._id ? updatedSlide : s
     )
 
-    setSlides(newSlides)
-
-    // await fetch(`/api/hero/${updatedSlide?._id}`, {
-    //   method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(updatedSlide),
-    // })
+    setHero(newSlides)
     await fetch(`/api/hero/${updatedSlide._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -36,10 +40,43 @@ export default function Hero({ slides, setSlides }: PropType) {
     });
   }
 
+  // useEffect(() => {
+  //   const fetchHero = async () => {
+  //     try {
+  //       const res = await fetch("/api/hero");
+  //       if (!res.ok) throw new Error("Failed to fetch hero");
+
+  //       const data = await res.json();
+  //       console.log(data, "Fetched hero data");
+  //       setHero(data?.hero || data || localData);
+  //     } catch (err) {
+  //       console.error(err);
+  //       setHero(localData);
+  //     }
+  //   };
+
+  //   fetchHero();
+  // }, []);
+  useEffect(() => {
+    const fetchHero = async () => {
+      const res = await fetch("/api/hero");
+      if (!res.ok) {
+        console.log("Failed to fetch hero");
+        return;
+      }
+
+      const data = await res.json();
+      console.log("Fetched hero:", data);
+      setHero(data?.hero || []);
+    };
+
+    fetchHero();
+  }, []);
+
   return (
     <section className="relative">
       <HeroCarousel
-        slides={slides}
+        slides={hero}
         onEditSlide={(slide) => setEditingSlide(slide)}
       />
 
@@ -50,6 +87,7 @@ export default function Hero({ slides, setSlides }: PropType) {
           onUpdate={handleUpdate}
         />
       )}
+      {/* <HeroAddedModal /> */}
     </section>
   )
 }

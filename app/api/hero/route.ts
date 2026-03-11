@@ -12,13 +12,47 @@ export async function GET() {
   }
 }
 
+// export async function POST(request: Request) {
+//   try {
+//     const { title, description } = await request.json();
+//     await connectMongoDB();
+//     const hero = await Hero.create({ title, description });
+//     return NextResponse.json(hero, { status: 201 });
+//   } catch (error) {
+//     return NextResponse.json({ error: "Failed to create hero" }, { status: 500 });
+//   }
+// }
 export async function POST(request: Request) {
   try {
-    const { title, description } = await request.json();
+    const {
+      title,
+      description,
+      image = "",
+      button1 = { text: "", link: "" },
+      button2 = { text: "", link: "" },
+    } = await request.json();
+
     await connectMongoDB();
-    const hero = await Hero.create({ title, description });
+
+    // Validate required fields
+    if (!title?.line1 || !title?.line2 || !description) {
+      return NextResponse.json(
+        { error: "Title lines and description are required" },
+        { status: 400 }
+      );
+    }
+
+    const hero = await Hero.create({
+      title,
+      description,
+      image,
+      button1,
+      button2,
+    });
+
     return NextResponse.json(hero, { status: 201 });
   } catch (error) {
+    console.error("POST /api/hero error:", error);
     return NextResponse.json({ error: "Failed to create hero" }, { status: 500 });
   }
 }

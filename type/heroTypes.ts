@@ -1,11 +1,11 @@
-// types/heroTypes.ts
 export type HeroPost = {
   _id: string
-  title?: string
-  description?: string
-  // slug?: string      
-  // subtitle?: string
-  image?: string
-  // ctaText?: string
-  // ctaLink?: string
+  image: string
+  title: {
+    line1: string
+    line2: string
+  }
+  description: string
+  button1: { text: string; link: string, leftIcon?: string, rightIcon?: string }
+  button2: { text: string; link: string, leftIcon?: string, rightIcon?: string }
 }

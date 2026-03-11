@@ -3,8 +3,9 @@ import React from "react";
 type ButtonProps = {
     text?: string; // Button ka text, default "Click Me"
     onClick?: () => void; // Button click handler
+    href?: string; // Optional link
     disabled?: boolean; // Button disable karne ke liye
-    variant?: "primary" | "secondary" | "danger" | "outline"; // Button ka type
+    variant?: "primary" | "secondary" | "danger" | "white" | "outline"; // Button ka type
     size?: "small" | "medium" | "large"; // Size of button
     iconLeft?: React.ReactNode;  // Left side icon
     iconRight?: React.ReactNode; // Right side icon
@@ -14,6 +15,7 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({
     text = "Click Me",
     onClick,
+    href,
     disabled = false,
     variant = "primary",
     size = "medium",
@@ -23,10 +25,12 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
     // Variant classes
     const variantClasses: Record<string, string> = {
-        primary: "bg-blue-500 hover:bg-blue-600 text-white",
-        secondary: "bg-gray-500 hover:bg-gray-600 text-white",
-        danger: "bg-red-500 hover:bg-red-600 text-white",
+        primary: "bg-primary hover:bg-primary-600 text-white",
+        secondary: "bg-secondary hover:bg-secondary-600 text-white",
+        danger: "bg-danger hover:bg-danger-600 text-white",
+        white: "bg-white hover:bg-gray-100 text-gray-800 border border-gray-300",
         outline: "border border-gray-500 text-gray-700 hover:bg-gray-100",
+        
     };
 
     // Size classes
@@ -36,21 +40,40 @@ const Button: React.FC<ButtonProps> = ({
         large: "px-6 py-3 text-lg",
     };
 
-    return (
-        <button
-            onClick={onClick}
-            disabled={disabled}
-            className={`
+    const commonClasses = `
         rounded-md font-medium transition 
         ${variantClasses[variant]} 
         ${sizeClasses[size]} 
         ${disabled ? "opacity-50 cursor-not-allowed" : ""}
         ${className}
-      `}
+    `;
+
+    // If href is provided, render as <a>
+    if (href) {
+        return (
+            <a
+                href={href}
+                className={commonClasses}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {iconLeft && <span className="flex items-center mr-1">{iconLeft}</span>}
+                {text}
+                {iconRight && <span className="flex items-center ml-1">{iconRight}</span>}
+            </a>
+        );
+    }
+
+    // Otherwise, normal button
+    return (
+        <button
+            onClick={onClick}
+            disabled={disabled}
+            className={commonClasses}
         >
-            {iconLeft && <span className="flex items-center">{iconLeft}</span>}
+            {iconLeft && <span className="flex items-center mr-1">{iconLeft}</span>}
             {text}
-            {iconRight && <span className="flex items-center">{iconRight}</span>}
+            {iconRight && <span className="flex items-center ml-1">{iconRight}</span>}
         </button>
     );
 };

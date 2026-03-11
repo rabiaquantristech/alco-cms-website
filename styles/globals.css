@@ -2,6 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+  /* heading */
+  .h1 {
+    @apply font-outfit font-semibold text-[55px] leading-[65px];
+  }
+
+  @screen sm {
+    .h1 {
+      @apply text-[45px] leading-[55px];
+    }
+  }
+
+  @screen md {
+    .h1 {
+      @apply text-[50px] leading-[55px];
+    }
+  }
+
+  @screen lg {
+    .h1 {
+      @apply text-[60px] leading-[65px];
+    }
+  }
+
+  .h2 {
+    @apply font-outfit font-semibold text-[24px] leading-[32px] ;
+    /* default mobile */
+  }
+
+  @screen sm {
+    .h2 {
+      @apply text-[26px] leading-[34px];
+      /* small screens */
+    }
+  }
+
+  @screen md {
+    .h2 {
+      @apply text-[28px] leading-[36px];
+      /* medium screens */
+    }
+  }
+
+  @screen lg {
+    .h2 {
+      @apply text-[30px] leading-[40px];
+      /* large screens */
+    }
+  }
+
+  @screen xl {
+    .h2 {
+      @apply text-[30px] leading-[40px];
+      /* xl screen (same as lg or adjust if needed) */
+    }
+  }
+
+  .h3 {
+    @apply font-outfit font-medium text-[30px] leading-[45px] ;
+    /* default mobile */
+  }
+
+  @screen sm {
+    .h3 {
+      @apply text-[32px] leading-[48px];
+      /* small screens */
+    }
+  }
+
+  @screen md {
+    .h3 {
+      @apply text-[36px] leading-[54px];
+      /* medium screens */
+    }
+  }
+
+  @screen lg {
+    .h3 {
+      @apply text-[40px] leading-[60px];
+      /* large screens */
+    }
+  }
+
+  @screen xl {
+    .h3 {
+      @apply text-[40px] leading-[60px];
+      /* XL screens, same as lg or increase if needed */
+    }
+  }
+
+  /* text */
+  .custom-text1 {
+    @apply font-outfit text-[18px] leading-[28px];
+  }
+
+  /* Small screens (sm) */
+  @screen sm {
+    .custom-text1 {
+      @apply text-[16px] leading-[24px];
+      /* slightly smaller for small screens */
+    }
+  }
+
+  /* Medium screens (md) */
+  @screen md {
+    .custom-text1 {
+      @apply text-[18px] leading-[28px];
+      /* default size restored for medium screens */
+    }
+  }
+
+  /* Large screens (lg) */
+  @screen lg {
+    .custom-text1 {
+      @apply text-[18px] leading-[28px];
+      /* slightly bigger for large screens */
+    }
+  }
+
+  /* Extra large screens (xl) */
+  @screen xl {
+    .custom-text1 {
+      @apply text-[18px] leading-[28px];
+      /* largest for xl screens */
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -32,7 +161,7 @@
 
 /* Handle */
 .scrollHeader ::-webkit-scrollbar-thumb {
-  background:  #0072b1;
+  background: #0072b1;
 }
 
 /* Handle on hover */
