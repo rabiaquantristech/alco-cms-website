@@ -8,6 +8,7 @@ import Benefits from "@/component/Benefits";
 import Accredited from "@/component/Accredited";
 import WhyTrainWithAL from "@/component/WhyTrainWithAL";
 import ALCOCenter from "@/component/ALCOCenter";
+import Testimonials from "@/component/testimonial";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Accredited />
       <WhyTrainWithAL />
       <ALCOCenter />
+      <Testimonials />
     </div>
   );
 }

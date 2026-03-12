@@ -16,8 +16,8 @@ const menuData = [
     submenu: [
       { name: "Program 1", link: "/program1" },
       { name: "Program 2", link: "/program2" },
-      { name: "Program 1", link: "/program1" },
-      { name: "Program 2", link: "/program2" },
+      { name: "Program 3", link: "/program3" },
+      { name: "Program 4", link: "/program4" },
     ],
   },
 
