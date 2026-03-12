@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white/80 backdrop-blur-2xl  border-b fixed w-full top-0 z-50">
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex items-center justify-between p-4">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">

@@ -30,7 +30,7 @@ export default function AralanLarikIntro() {
 
   return (
     <section className="py-16 px-4 bg-light-neutral bg-cover bg-top-left w-full">
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 my-8">
           <div className="flex flex-col justify-center">
             <h3 className="h3 text-black text-start">

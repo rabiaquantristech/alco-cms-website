@@ -70,7 +70,7 @@
 
 //   return (
 //     <section className="py-16 px-4 bg-medium-neutral bg-cover bg-top-left w-full">
-//       <div className="max-w-screen-xl mx-auto px-4">
+//       <div className="container mx-auto px-4">
 //         <div className="grid grid-cols-12 gap-2 my-8">
 //           <div className="flex flex-col justify-start cols-span-12 md:col-span-5 gap-6">
 //             <h3 className="h3 text-black text-start">
@@ -180,7 +180,7 @@ export default function Benefits() {
   return (
     <section className="px-4 bg-medium-neutral bg-left-top bg-cover w-full">
 
-      <div className="max-w-screen-xl mx-auto grid grid-cols-12 gap-6">
+      <div className="container mx-auto grid grid-cols-12 gap-6">
 
         {/* Left Content */}
         <div className="col-span-12 md:col-span-5 flex flex-col gap-6 py-16 ">

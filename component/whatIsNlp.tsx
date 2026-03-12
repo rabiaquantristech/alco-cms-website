@@ -21,7 +21,7 @@ export default function WhatIsNlp() {
 
   return (
     <section className="py-16 px-4 bg-dark-primary bg-cover bg-top-left w-full">
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="container mx-auto px-4">
 
         <h3 className="h3 text-white text-start">
           {data.title}

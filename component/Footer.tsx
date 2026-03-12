@@ -42,7 +42,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-dark-primary-to-light bg-top-left bg-cover w-full">
 
-      <div className="max-w-screen-xl mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12">
 
         <div className="grid md:grid-cols-4 gap-10">
 

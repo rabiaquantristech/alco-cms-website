@@ -69,7 +69,7 @@ export default function OurProgram() {
 
   return (
     <section className="py-16 bg-dark-primary bg-cover bg-top-left w-full">
-      <div className="max-w-screen-xl mx-auto px-8 ">
+      <div className="container mx-auto px-8 ">
         <div className="grid grid-cols-12  gap-2 my-8">
           <div className="flex flex-col justify-start col-span-5">
             <h3 className="h3 text-white text-start">

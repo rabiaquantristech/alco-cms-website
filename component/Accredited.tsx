@@ -18,7 +18,7 @@ const accreditedTitle: accreditedType = {
 export default function Accredited() {
   return (
     <section className="py-16 bg-medium-primary bg-cover bg-top-left w-full">
-      <div className="max-w-screen-xl mx-auto px-8 ">
+      <div className="container mx-auto px-8 ">
         <h2 className="h2 text-center text-white mb-12">
           {accreditedTitle.title}
         </h2>

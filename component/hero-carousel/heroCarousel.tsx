@@ -24,8 +24,8 @@ const HeroCarousel = ({ slides, options, onEditSlide }: PropType) => {
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}>
-      {/* <div className="max-w-screen-xl mx-auto border px-4 2xl:px-0 "> */}
-      <div className="container mx-auto border px-4 2xl:px-0 ">
+      {/* <div className="container mx-auto border px-4 2xl:px-0 "> */}
+      <div className="container mx-auto px-4 2xl:px-0 ">
         <div className="hero_embla__viewport " ref={emblaRef}>
           <div className="hero_embla__container">
             {slides.map((slide) => (
@@ -69,7 +69,7 @@ const HeroCarousel = ({ slides, options, onEditSlide }: PropType) => {
       </div>
 
       {/* Dots */}
-      <div className="hero_embla__controls  max-w-screen-xl mx-auto ">
+      <div className="hero_embla__controls  container mx-auto ">
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}

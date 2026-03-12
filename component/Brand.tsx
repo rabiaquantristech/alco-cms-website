@@ -23,7 +23,7 @@ const brandTitle: BrandTitle = "Trusted By Global Organizations";
 
 export default function Brand() {
   return (
-    <section className="relative max-w-screen-xl mx-auto py-16 px-4">
+    <section className="relative container mx-auto py-16 px-4">
         <h2 className="h2 text-center mb-12">
             {brandTitle}
         </h2>

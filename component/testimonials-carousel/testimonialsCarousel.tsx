@@ -24,7 +24,7 @@ const TestimonialsCarousel = ({ slides, options, onEditSlide }: PropType) => {
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}>
-      <div className="testimonials_embla__viewport max-w-screen-xl mx-auto" ref={emblaRef}>
+      <div className="testimonials_embla__viewport container mx-auto" ref={emblaRef}>
         <div className="testimonials_embla__container">
           {slides.map((slide) => (
             <div className="testimonials_embla__slide" key={slide?._id}>
@@ -66,7 +66,7 @@ const TestimonialsCarousel = ({ slides, options, onEditSlide }: PropType) => {
       </div>
 
       {/* Dots */}
-      <div className="testimonials_embla__controls  max-w-screen-xl mx-auto ">
+      <div className="testimonials_embla__controls  container mx-auto ">
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}
