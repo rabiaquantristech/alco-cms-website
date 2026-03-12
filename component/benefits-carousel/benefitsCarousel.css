@@ -1,0 +1,23 @@
+.benefits_embla {
+  max-width: 50%;
+  margin: auto;
+  --slide-height: 25rem;
+  --slide-spacing: 14rem;
+  --slide-size: 25%;
+  min-height: 450px;
+}
+.benefits_embla__viewport {
+  overflow: hidden;
+}
+.benefits_embla__container {
+  display: flex;
+  touch-action: pan-x pinch-zoom;
+  margin-top: calc(var(--slide-spacing) * -1);
+  height: calc((var(--slide-height) * 1) + (var(--slide-spacing) * 2));
+  flex-direction: column;
+}
+.benefits_embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-height: 150px;
+  padding-top: var(--slide-spacing);
+}

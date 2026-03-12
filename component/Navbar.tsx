@@ -1,100 +1,175 @@
-// import Link from "next/link";
 
-// export default function Navbar() {
-//   return (
-//     <nav className="bg-gray-800 text-white p-4">
-//       <ul className="flex space-x-4">
-//         <li><Link href="/">Home</Link></li>
-//         <li><Link href="/about">About</Link></li>
-//         <li><Link href="/contact">Contact</Link></li>
-//       </ul>
-//     </nav>
-//   );
-// }
 "use client";
 
 import Link from "next/link";
 import { useState } from "react";
-import { FiCheck, FiTrash2 } from "react-icons/fi"; // React Icons library
 import Button from "./button";
+import { IoChevronDown } from "react-icons/io5";
+import Logo from "@/assets/logo.webp";
+import Image from "next/image";
+
+const menuData = [
+  { name: "Home", link: "/" },
+
+  {
+    name: "Program",
+    submenu: [
+      { name: "Program 1", link: "/program1" },
+      { name: "Program 2", link: "/program2" },
+      { name: "Program 1", link: "/program1" },
+      { name: "Program 2", link: "/program2" },
+    ],
+  },
+
+  {
+    name: "About Us",
+    submenu: [
+      { name: "Our Mission", link: "/mission" },
+      { name: "FAQs", link: "/faqs" },
+    ],
+  },
+
+  { name: "Four Clouds Model", link: "/four-clouds" },
+  { name: "Blogs", link: "/blogs" },
+  { name: "Resource", link: "/resource" },
+  { name: "Contact", link: "/contact" },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (name: string) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   return (
-    <nav className="bg-white border-b fixed w-full top-0 z-20 ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-white/80 backdrop-blur-2xl  border-b fixed w-full top-0 z-50">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-7"
-            alt="Logo"
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src={Logo}
+            alt="logo"
+            className="h-10 md:h-11 xl:h-12 2xl:h-13  w-auto"
+            priority
           />
-          <span className="text-xl font-semibold">ALCO</span>
         </Link>
 
-        {/* Right Buttons */}
-        <div className="flex md:order-2 space-x-3">
-          <Button
-            text="Both Icons"
-            variant="primary"
-          />
-          {/* <button className="text-white bg-blue-600 hover:bg-blue-700 rounded-lg text-sm px-4 py-2">
-            Get Started
-          </button> */}
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 w-9 h-9 flex items-center justify-center"
-          >
-            <svg
-              className="w-6 h-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex items-stretch gap-4 xl:gap-8 2xl:gap-6 z-0">
+          {menuData.map((item) => (
+            <li
+              key={item.name}
+              className="relative "
+              onMouseEnter={() => item.submenu && setOpenDropdown(item.name)}
+              onMouseLeave={() => item.submenu && setOpenDropdown(null)}
             >
-              <path strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14" />
-            </svg>
-          </button>
+              {item.submenu ? (
+                <>
+                  <button className="header-menu-font flex items-center gap-x-1 ">
+                    {item.name}
+                    <IoChevronDown />
+                  </button>
+
+                  {/* Desktop Dropdown */}
+                  {openDropdown === item.name && (
+                    <div className="absolute left-0 top-full pt-2 ">
+                      <ul className="bg-primary rounded-lg shadow-lg min-w-[250px] my-2 overflow-hidden border border-primary">
+                        {item.submenu.map((sub) => (
+                          <li key={sub.name}>
+                            <Link
+                              href={sub.link}
+                              className="block px-4 py-2 header-submenu-font hover:bg-gray-100/10 backdrop-blur-sm text-neutral-100 hover:text-white "
+                            >
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link href={item.link ?? "#"} className="header-menu-font flex items-center">
+                  {item.name}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* Desktop Buttons */}
+        <div className="hidden lg:flex gap-3">
+          <Button text="Enroll Now" className="header-menu-button px-[12px]" />
+          <Button text="GET 1:1 COACHING" variant="outlinePrimary" className="header-menu-button px-[12px]" />
         </div>
 
-        {/* Menu */}
-        <div
-          className={`${open ? "block" : "hidden"
-            } w-full md:flex md:w-auto md:order-1`}
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden text-2xl"
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 font-medium p-4 md:p-0 mt-4 md:mt-0">
-            <li>
-              <Link href="/" className="block py-2 px-3 text-blue-600">
-                Home
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/about" className="block py-2 px-3 hover:text-blue-600">
-                About
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/services" className="block py-2 px-3 hover:text-blue-600">
-                Services
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/contact" className="block py-2 px-3 hover:text-blue-600">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+          ☰
+        </button>
 
       </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="lg:hidden border-t bg-white/40 backdrop-blur-3xl">
+          <ul className="flex flex-col p-4 gap-3">
+
+            {menuData.map((item) => (
+              <li key={item.name}>
+
+                {item.submenu ? (
+                  <>
+                    <button
+                      onClick={() => toggleDropdown(item.name)}
+                      className="header-menu-font w-full text-left flex justify-between items-center"
+                    >
+                      {item.name}
+                      <IoChevronDown
+                        className={`transition-transform ${openDropdown === item.name ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+
+                    {openDropdown === item.name && (
+                      <ul className="pl-4 mt-2 flex flex-col gap-2">
+                        {item.submenu.map((sub) => (
+                          <li key={sub.name}>
+                            <Link
+                              href={sub.link}
+                              className="header-submenu-font"
+                            >
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <Link href={item.link ?? "#"} className="header-menu-font">
+                    {item.name}
+                  </Link>
+                )}
+
+              </li>
+            ))}
+
+            {/* Mobile Buttons */}
+            <div className="flex flex-col sm:flex-row gap-2 pt-4">
+              <Button text="Enroll Now" variant="primary" className="header-menu-button px-[12px] min-w-[160px]" />
+              <Button text="GET 1:1 COACHING" variant="outlinePrimary" className="header-menu-button px-[12px] min-w-[160px]" />
+            </div>
+
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

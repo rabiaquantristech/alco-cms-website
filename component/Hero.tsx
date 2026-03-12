@@ -80,13 +80,13 @@ export default function Hero() {
         onEditSlide={(slide) => setEditingSlide(slide)}
       />
 
-      {editingSlide && (
+      {/* {editingSlide && (
         <HeroEditorModal
           slide={editingSlide}
           onClose={() => setEditingSlide(null)}
           onUpdate={handleUpdate}
         />
-      )}
+      )} */}
       {/* <HeroAddedModal /> */}
     </section>
   )

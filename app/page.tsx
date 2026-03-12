@@ -4,6 +4,7 @@ import Brand from "@/component/Brand";
 import WhatIsNlp from "@/component/whatIsNlp";
 import AralanLarikIntro from "@/component/AralanLarikIntro";
 import OurProgram from "@/component/OurProgram";
+import Benefits from "@/component/Benefits";
 import Accredited from "@/component/Accredited";
 import WhyTrainWithAL from "@/component/WhyTrainWithAL";
 import ALCOCenter from "@/component/ALCOCenter";
@@ -16,6 +17,7 @@ export default function Home() {
       <WhatIsNlp />
       <AralanLarikIntro />
       <OurProgram />
+      <Benefits />
       <Accredited />
       <WhyTrainWithAL />
       <ALCOCenter />

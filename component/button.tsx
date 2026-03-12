@@ -5,7 +5,16 @@ type ButtonProps = {
     onClick?: () => void; // Button click handler
     href?: string; // Optional link
     disabled?: boolean; // Button disable karne ke liye
-    variant?: "primary" | "secondary" | "secondaryBlack" | "danger" | "white" | "outline"; // Button ka type
+    variant?:
+    "primary"
+    | "secondary"
+    | "secondaryBlack"
+    | "danger"
+    | "white"
+    | "outlinePrimary"
+    | "outlineSecondary"
+    | "outlineDanger"
+    | "outlineWhite"; // Button ka type
     size?: "small" | "medium" | "large"; // Size of button
     iconLeft?: React.ReactNode;  // Left side icon
     iconRight?: React.ReactNode; // Right side icon
@@ -30,8 +39,11 @@ const Button: React.FC<ButtonProps> = ({
         secondaryBlack: "bg-secondary hover:bg-secondary-600 text-black",
         danger: "bg-danger hover:bg-danger-600 text-white",
         white: "bg-white hover:bg-gray-100 text-gray-800 border border-gray-300",
-        outline: "border border-gray-500 text-gray-700 hover:bg-gray-100",
-        
+        outlinePrimary: "border border-primary text-primary hover:bg-primary hover:text-white",
+        outlineSecondary: "border border-secondary text-secondary hover:bg-secondary hover:text-white",
+        outlineDanger: "border border-danger text-danger hover:bg-danger hover:text-white",
+        outlineWhite: "border border-white text-white hover:bg-white hover:text-gray-900",
+
     };
 
     // Size classes
@@ -40,14 +52,14 @@ const Button: React.FC<ButtonProps> = ({
         medium: "px-4 py-2 text-base",
         large: "px-6 py-3 text-lg",
     };
-
     const commonClasses = `
-        rounded-md font-medium transition 
-        ${variantClasses[variant]} 
-        ${sizeClasses[size]} 
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
-        ${className}
-    `;
+    inline-flex items-center justify-center
+    rounded-md font-medium transition
+    ${variantClasses[variant]} 
+    ${sizeClasses[size]} 
+    ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+    ${className}
+`;
 
     // If href is provided, render as <a>
     if (href) {
