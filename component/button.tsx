@@ -1,4 +1,5 @@
 import React from "react";
+import { CgArrowTopRight } from "react-icons/cg";
 
 type ButtonProps = {
     text?: string; // Button ka text, default "Click Me"
@@ -29,13 +30,13 @@ const Button: React.FC<ButtonProps> = ({
     variant = "primary",
     size = "medium",
     iconLeft,
-    iconRight,
+    iconRight = true,
     className = "",
 }) => {
     // Variant classes
     const variantClasses: Record<string, string> = {
         primary: "bg-primary hover:bg-primary-600 text-white",
-        secondary: "bg-secondary hover:bg-secondary-600 text-white",
+        secondary: "bg-secondary hover:bg-secondary-600 text-black",
         secondaryBlack: "bg-secondary hover:bg-secondary-600 text-black",
         danger: "bg-danger hover:bg-danger-600 text-white",
         white: "bg-white hover:bg-gray-100 text-gray-800 border border-gray-300",
@@ -54,7 +55,7 @@ const Button: React.FC<ButtonProps> = ({
     };
     const commonClasses = `
     inline-flex items-center justify-center
-    rounded-md font-medium transition
+    rounded-md font-medium transition font-outfit
     ${variantClasses[variant]} 
     ${sizeClasses[size]} 
     ${disabled ? "opacity-50 cursor-not-allowed" : ""}
@@ -72,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
             >
                 {iconLeft && <span className="flex items-center mr-1">{iconLeft}</span>}
                 {text}
-                {iconRight && <span className="flex items-center ml-1">{iconRight}</span>}
+                {iconRight === true ? <span className="flex items-center ml-1"><CgArrowTopRight  size={16} /></span> : iconRight && <span className="flex items-center ml-1">{iconRight}</span>}
             </a>
         );
     }

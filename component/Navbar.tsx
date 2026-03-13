@@ -102,7 +102,7 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden lg:flex gap-3">
-          <Button text="Enroll Now" className="header-menu-button px-[12px]" />
+          <Button text="Enroll Now" className="header-menu-button px-[12px]" href="#" />
           <Button text="GET 1:1 COACHING" variant="outlinePrimary" className="header-menu-button px-[12px]" />
         </div>
 
@@ -163,7 +163,7 @@ export default function Navbar() {
 
             {/* Mobile Buttons */}
             <div className="flex flex-col sm:flex-row gap-2 pt-4">
-              <Button text="Enroll Now" variant="primary" className="header-menu-button px-[12px] min-w-[160px]" />
+              <Button text="Enroll Now" variant="primary" className="header-menu-button px-[12px] min-w-[160px]" href="#"/>
               <Button text="GET 1:1 COACHING" variant="outlinePrimary" className="header-menu-button px-[12px] min-w-[160px]" />
             </div>
 

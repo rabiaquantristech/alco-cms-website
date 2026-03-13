@@ -33,7 +33,7 @@ const OurProgramCarousel = ({ slides, options }: PropType) => {
               key={index}
             >
               <div className="our_program_embla__slide__box bg-gradient-secondary-primary grid grid-cols-12  gap-2 rounded-lg">
-                <div className="flex flex-col justify-start col-span-9">
+                <div className="flex flex-col justify-start col-span-12 xl:col-span-8 2xl:col-span-9">
                   <h6 className='text-md md:text-lg lg:text-xl text-white'>Level {index + 1}</h6>
                   <h5 className="h5 text-white text-start">
                     {slide.title}
@@ -42,8 +42,8 @@ const OurProgramCarousel = ({ slides, options }: PropType) => {
                     {slide.description}
                   </p>
                 </div>
-                <div className="flex flex-col justify-center col-span-3">
-                  <Button variant="primary" size="medium" text="Learn More" className='my-auto' />
+                <div className="flex xl:flex-col xl:justify-center col-span-12 xl:col-span-4 2xl:col-span-3">
+                  <Button variant="primary" size="medium" text="Learn More" href="#" className='my-auto xl:mx-3' />
                 </div>
                 <div className="flex flex-col justify-center col-span-12 mt-4">
                   <img

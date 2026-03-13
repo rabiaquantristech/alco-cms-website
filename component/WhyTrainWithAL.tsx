@@ -80,7 +80,7 @@ export default function WhyTrainWithAL() {
               {data.description}
             </p>
             <div className="mt-4">
-              <Button variant="primary" size="medium" text="Learn More" className='my-auto' />
+              <Button variant="primary" size="medium" text="Learn More" href="#" className='my-auto' />
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function WhyTrainWithAL() {
           {data.points.map((point, index) => (
             <div key={index} className="flex items-center text-center gap-4 p-6 border rounded-lg shadow-md">
               <img src={point.image.src} alt={point.image.alt} className="w-16 h-16 object-cover " />
-              <p className="text-md lg:text-lg font-medium text-black/85 text-start">
+              <p className="text-md lg:text-lg font-medium text-black/85 text-start font-outfit">
                 {point.title}
               </p>
             </div>

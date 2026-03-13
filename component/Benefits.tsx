@@ -1,6 +1,5 @@
 "use client"
-
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Button from "./button"
 import { BenefitsData } from "@/type/benefits"
 
@@ -73,38 +72,59 @@ const benefitsData: BenefitsData = {
 export default function Benefits() {
   const data = benefitsData
 
+  const [axis, setAxis] = useState<"x" | "y">("y")
+
+  useEffect(() => {
+    const checkScreen = () => {
+      if (window.innerWidth <= 1023) {
+        setAxis("x") // lg → horizontal
+      } else {
+        setAxis("y") // mobile → vertical
+      }
+    }
+
+    checkScreen()
+    window.addEventListener("resize", checkScreen)
+
+    return () => window.removeEventListener("resize", checkScreen)
+  }, [])
+
   return (
     <section className="px-4 bg-medium-neutral bg-left-top bg-cover w-full">
 
       <div className="container mx-auto grid grid-cols-12 gap-6">
 
         {/* Left Content */}
-        <div className="col-span-12 md:col-span-5 flex flex-col gap-6 py-16 ">
+        <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 py-16 ">
 
           <h3 className="h3 text-black">{data.title}</h3>
 
           <p className="custom-text-1 text-black">
             {data.description}
           </p>
+          <div>
+            <Button
+              variant="secondary"
+              size="medium"
+              text="Explore More"
+              href="#"
+            />
+          </div>
 
-          <Button
-            variant="primary"
-            size="medium"
-            text="Explore More"
-          />
+
 
         </div>
 
         {/* Right Carousel */}
-        <div className="col-span-12 md:col-span-7">
-          <div className="flex gap-6">
+        <div className="col-span-12 lg:col-span-7">
+          <div className="flex flex-col lg:flex-row gap-6">
 
             {/* Normal scroll */}
             <BenefitsCarousel
               slides={data.slides}
               direction="forward"
               options={{
-                axis: "y",
+                axis: axis,
                 align: "start",
                 loop: true
               }}
@@ -115,7 +135,7 @@ export default function Benefits() {
               slides={data.slides}
               direction="backward"
               options={{
-                axis: "y",
+                axis: axis,
                 align: "end",
                 loop: true
               }}
