@@ -17,15 +17,51 @@
 //   return NextResponse.json({ hero }, { status: 200 });
 // }
 
+// import connectMongoDB from "@/libs/mongodb";
+// import Hero from "@/models/hero";
+// import { NextResponse } from "next/server";
+
+// export async function PUT(
+//   request: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   const { id } = params; // ✅ only this
+
+//   const { title, description } = await request.json();
+
+//   await connectMongoDB();
+
+//   const hero = await Hero.findByIdAndUpdate(
+//     id,
+//     { title, description },
+//     { new: true, returnDocument: "after" } // avoid deprecation warning
+//   );
+
+//   return NextResponse.json({ hero }, { status: 200 });
+// }
+
+// export async function GET(
+//   request: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   const { id } = params; // ✅ only this
+
+//   await connectMongoDB();
+
+//   const hero = await Hero.findById(id);
+
+//   return NextResponse.json({ hero }, { status: 200 });
+// }
+
 import connectMongoDB from "@/libs/mongodb";
 import Hero from "@/models/hero";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params; // ✅ only this
+  const { id } = await params;
 
   const { title, description } = await request.json();
 
@@ -34,17 +70,17 @@ export async function PUT(
   const hero = await Hero.findByIdAndUpdate(
     id,
     { title, description },
-    { new: true, returnDocument: "after" } // avoid deprecation warning
+    { new: true }
   );
 
   return NextResponse.json({ hero }, { status: 200 });
 }
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params; // ✅ only this
+  const { id } = await params;
 
   await connectMongoDB();
 
