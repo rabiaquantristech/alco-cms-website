@@ -19,7 +19,7 @@ const StudentReviewCarousel = ({ slides, options }: PropType) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
     return (
-        <section className="student_review_embla relative py-6 md:py-8 lg:py-12 xl:py-16 ">
+        <section className="student_review_embla relative py-6 md:py-8 lg:py-12 xl:py-6 md:py-8 lg:py-12 xl:py-16 ">
             <div className="student_review_embla__viewport relative" ref={emblaRef}>
                 <div className="student_review_embla__container ">
                     {slides.map((slide) => (
@@ -64,16 +64,16 @@ const StudentReviewCarousel = ({ slides, options }: PropType) => {
 
             {/* Arrows fixed left/right */}
             <div className="student_review_embla__controls">
-                <div className="student_review_embla__buttons mt-8 md:mt-0">
+                <div className="student_review_embla__buttons mt-8 xl:mt-0">
                     <button
                         onClick={() => emblaApi?.scrollPrev()}
-                        className="md:absolute md:top-1/2 md:-left-8 transform -translate-y-1/2 bg-primary text-white h-10 w-10 rounded-full shadow-lg z-10 flex justify-center items-center"
+                        className="xl:absolute xl:top-1/2 xl:-left-8 transform -translate-y-1/2 bg-primary text-white h-10 w-10 rounded-full shadow-lg z-10 flex justify-center items-center"
                     >
                         <MdArrowForwardIos className="rotate-180" />
                     </button>
                     <button
                         onClick={() => emblaApi?.scrollNext()}
-                        className=" md:absolute md:top-1/2 md:-right-8 transform -translate-y-1/2 bg-primary text-white h-10 w-10 rounded-full shadow-lg z-10 flex justify-center items-center"
+                        className=" xl:absolute xl:top-1/2 xl:-right-8 transform -translate-y-1/2 bg-primary text-white h-10 w-10 rounded-full shadow-lg z-10 flex justify-center items-center"
                     >
                         <MdArrowForwardIos />
                     </button>

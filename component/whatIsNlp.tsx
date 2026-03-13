@@ -20,7 +20,7 @@ export default function WhatIsNlp() {
   const data = whatIsNlpData;
 
   return (
-    <section className="py-16 px-4 bg-dark-primary bg-cover bg-top-left w-full">
+    <section className="py-6 md:py-8 lg:py-12 xl:py-16 px-4 bg-dark-primary bg-cover bg-top-left w-full">
       <div className="container mx-auto px-4">
 
         <h3 className="h3 text-white text-start">

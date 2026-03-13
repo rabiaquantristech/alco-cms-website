@@ -19,7 +19,7 @@ const HeroCarousel = ({ slides, options, onEditSlide }: PropType) => {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
   console.log(slides)
   return (
-    <section className="hero_embla py-16 " style={{
+    <section className="hero_embla py-6 md:py-8 lg:py-12 xl:py-16 " style={{
       background: `linear-gradient(90.5deg, #000000 -3.72%, rgba(0, 0, 0, 0) 104.47%), url(${heroSlide1.src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",

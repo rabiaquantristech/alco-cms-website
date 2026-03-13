@@ -67,7 +67,7 @@ export default function WhyTrainWithAL() {
   const data = whyTrainWithALData;
 
   return (
-    <section className="py-16 px-4 bg-light-neutral bg-cover bg-top-left w-full">
+    <section className="py-6 md:py-8 lg:py-12 xl:py-16 px-4 bg-light-neutral bg-cover bg-top-left w-full">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 my-8">
           <div className="flex flex-col justify-start ">

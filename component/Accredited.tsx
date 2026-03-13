@@ -17,8 +17,8 @@ const accreditedTitle: accreditedType = {
 
 export default function Accredited() {
   return (
-    <section className="py-16 bg-medium-primary bg-cover bg-top-left w-full">
-      <div className="container mx-auto px-8 ">
+    <section className="py-6 md:py-8 lg:py-12 xl:py-16 bg-medium-primary bg-cover bg-top-left w-full">
+      <div className="container mx-auto sm:px-8 ">
         <h2 className="h2 text-center text-white mb-12">
           {accreditedTitle.title}
         </h2>
@@ -26,7 +26,7 @@ export default function Accredited() {
         <img
           src={accreditedTitle.image.src ?? accreditedBrands.src}
           alt={accreditedTitle.image.alt ?? "Accredited Brands"}
-          className="w-full h-[200px] object-contain "
+          className="w-full h-[90px] sm:h-[120px] md:h-[150px] lg:h-[200px] object-contain "
         />
         </div>
       </div>

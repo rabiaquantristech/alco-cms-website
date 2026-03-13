@@ -90,12 +90,12 @@ export default function Benefits() {
   }, [])
 
   return (
-    <section className="px-4 bg-medium-neutral bg-left-top bg-cover w-full">
+    <section className="px-4 bg-medium-neutral py-6 md:py-8 lg:py-0 bg-left-top bg-cover w-full">
 
       <div className="container mx-auto grid grid-cols-12 gap-6">
 
         {/* Left Content */}
-        <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 py-16 ">
+        <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 sm:py-6 md:py-8 lg:py-12 xl:py-16 ">
 
           <h3 className="h3 text-black">{data.title}</h3>
 
