@@ -43,7 +43,7 @@ const testimonialsData: TestimonialsPost[] = [
 export default function Testimonials() {
     const [activeTab, setActiveTab] = useState<"testimonials" | "dummy">("testimonials");
     return (
-        <section className="px-4 py-16 bg-gray-50 w-full">
+        <section className="py-16 px-4 bg-light-neutral bg-cover bg-top-left w-full">
             <div className="container mx-auto">
 
                 {/* <section className="max-w-screen-xl mx-auto px-4 py-16 w-full"> */}

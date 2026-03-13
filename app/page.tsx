@@ -22,7 +22,7 @@ export default function Home() {
       <Accredited />
       <WhyTrainWithAL />
       <ALCOCenter />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 }

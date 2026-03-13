@@ -30,7 +30,7 @@ const TestimonialsCarousel = ({ slides, options, onEditSlide }: PropType) => {
         <div className="testimonials_embla__container">
           {slides.map((slide) => (
             <div className="testimonials_embla__slide" key={slide?._id}>
-              <div className="testimonials_embla__slide__content mb-4 rounded-md text-white relative">
+              <div className="testimonials_embla__slide__content mb-4 rounded-md relative">
                 {/* <h1 className="h1 text-white">{slide?.title?.line1}</h1>
                 <h1 className="h1 text-secondary">{slide?.title?.line2}</h1> */}
                 {/* <p className="custom-text1 my-4 font-normal">{slide?.description}</p> */}
